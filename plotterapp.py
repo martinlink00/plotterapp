@@ -45,7 +45,8 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                         id='rangepicker_cam',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='beamgraph'
@@ -98,7 +99,8 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                         id='rangepicker_temp',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(250,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='tempgraph'
@@ -152,7 +154,8 @@ elif len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)==0:
                         id='rangepicker_cam',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='beamgraph'
@@ -204,7 +207,8 @@ elif len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)==0:
                         id='rangepicker_temp',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='tempgraph'
@@ -256,7 +260,8 @@ elif len(guiintplot.beamsindb)==0 and len(guiintplot.tempindb)!=0:
                         id='rangepicker_cam',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='beamgraph'
@@ -309,7 +314,8 @@ elif len(guiintplot.beamsindb)==0 and len(guiintplot.tempindb)!=0:
                         id='rangepicker_temp',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='tempgraph'
@@ -362,7 +368,8 @@ else:
                         id='rangepicker_cam',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='beamgraph'
@@ -414,7 +421,8 @@ else:
                         id='rangepicker_temp',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        max_date_allowed=dt(2050,1,1)#fromtimestamp(time.time()),
+                        initial_visible_month=dt.fromtimestamp(time.time()),
+                        max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
                     id='tempgraph'
