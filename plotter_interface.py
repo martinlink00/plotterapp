@@ -10,6 +10,7 @@ import pandas as pd
 from plotly.subplots import make_subplots
 
 
+
 #####################################################################################################################
 
 
@@ -81,7 +82,7 @@ class Guiinterfaceplotter:
         else:
             xrange[0]=xran[0]
         
-        fields=['channel' + str(i+1) for i in range(0,9)]
+        fields=self._tempviewer.getfields(self._client,xrange)
         
         fig = go.Figure()
         
@@ -139,7 +140,7 @@ class Guiinterfaceplotter:
         else:
             xrange[0]=xran[0]
 
-        fields=['channel' + str(i+1) for i in range(0,9)]
+        fields=self._tempviewer.getfields(self._client,xrange)
         
         if path is not None:
             exportto=path+'datalogger_export'
@@ -189,4 +190,7 @@ class Tempviewer:
     def getplotdata(self,client,field,xrange):
         return db.extractdatahist(client,self._selectedtemp,field,xrange)
             
+        
+    def getfields(self,client,xrange):
+        return db.fieldlabels(client,self._selectedtemp,xrange)
     
