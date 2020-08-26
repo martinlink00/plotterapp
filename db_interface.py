@@ -9,10 +9,10 @@ from influxdb import InfluxDBClient
 ########################################################################################
 
 
-def extractdatahist(client,beamselec,fieldselec,xrange):
+def extractdatahist(client,sensorselec,fieldselec,xrange):
     """Returns data from a client as tuple"""
     res=client.query('select * from "log" where time <='+xrange[1]+' and time >='+xrange[0])
-    points=res.get_points(tags={'sensor':beamselec})
+    points=res.get_points(tags={'sensor':sensorselec})
     d=[]
     t=[]
     
@@ -23,17 +23,21 @@ def extractdatahist(client,beamselec,fieldselec,xrange):
     return t, d
 
 
+def fieldlabels(client,sensorselec,xrange):
+    """Returns list of sensor field labels in database."""
+    res=client.query('select * from "log" where time <='+xrange[1]+' and time >='+xrange[0])
+    points=res.get_points(tags={'sensor':sensorselec})
+    f=[]
+    for point in points:
+        for key in point.keys():
+            if key!='time' and key!='type' and key!='sensor':
+                if key not in f:
+                    f.append(key)
+    return f
 
-
-def getlatestdata(client,beamselec):
-    """Returns latest data entry of a client"""
-    res=client.query('SELECT * FROM "log" GROUP BY * ORDER BY DESC LIMIT 1')
-    points=res.get_points(tags={'type':'camera','sensor':beamselec})
-    for i in points:
-        return i
 
 def sensorsindb(client,type):
-    """Returns a list of all beam sensors of a client"""
+    """Returns a list of all sensors of a certain type from client."""
     res=client.query('SELECT * FROM "log"')
     points=res.get_points(tags={'type':type})
     l=[]
