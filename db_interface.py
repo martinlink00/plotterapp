@@ -23,14 +23,14 @@ def extractdatahist(client,sensorselec,fieldselec,xrange):
     return t, d
 
 
-def fieldlabels(client,sensorselec,xrange):
+def fieldlabels(client,type,sensorselec,xrange):
     """Returns list of sensor field labels in database."""
     res=client.query('select * from "log" where time <='+xrange[1]+' and time >='+xrange[0])
-    points=res.get_points(tags={'sensor':sensorselec})
+    points=res.get_points(tags={'sensor':sensorselec,'type':type})
     f=[]
     for point in points:
         for key in point.keys():
-            if key!='time' and key!='type' and key!='sensor':
+            if key!='time' and key!='type' and key!='sensor' and point[key]!=None:
                 if key not in f:
                     f.append(key)
     return f
@@ -55,9 +55,3 @@ def initiatedb(db="DB",host="localhost",port=8086):
     client.create_database(db)
     client.switch_database(db)
     return client
-
-    
-
-
-
-
