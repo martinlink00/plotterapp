@@ -118,11 +118,12 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                 ],
                 style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
-            ],style={'width': '95%','height':'95%', 'display': 'inline-block'})
+            ],className="six columns",style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
 
 
-        ], style={
+        ], className="row",
+            style={
             'borderBottom': 'thin lightgrey solid',
             'backgroundColor': 'rgb(250, 250, 250)',
             'padding': '10px 5px',
@@ -223,11 +224,11 @@ elif len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)==0:
                 ],
                 style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
-            ],style={'width': '95%','height':'95%', 'display': 'inline-block'})
+            ],className="six columns",style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
 
 
-        ], style={
+        ], className="row",style={
             'borderBottom': 'thin lightgrey solid',
             'backgroundColor': 'rgb(250, 250, 250)',
             'padding': '10px 5px',
@@ -328,11 +329,11 @@ elif len(guiintplot.beamsindb)==0 and len(guiintplot.tempindb)!=0:
                 ],
                 style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
-            ],style={'width': '95%','height':'95%', 'display': 'inline-block'})
+            ],className="six columns",style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
 
 
-        ], style={
+        ],className="row", style={
             'borderBottom': 'thin lightgrey solid',
             'backgroundColor': 'rgb(250, 250, 250)',
             'padding': '10px 5px',
@@ -433,11 +434,11 @@ else:
                 ],
                 style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
-            ],style={'width': '95%','height':'95%', 'display': 'inline-block'})
+            ],className="six columns",style={'width': '95%','height':'95%', 'display': 'inline-block'})
 
 
 
-        ], style={
+        ],className="row", style={
             'borderBottom': 'thin lightgrey solid',
             'backgroundColor': 'rgb(250, 250, 250)',
             'padding': '10px 5px',
