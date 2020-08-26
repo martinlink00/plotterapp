@@ -17,6 +17,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 import plotter_interface as im
+import os
 
 
 ###############################################################################
@@ -25,6 +26,8 @@ import plotter_interface as im
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+EXPORTPATH=os.getcwd()
 
 guiintplot=im.Guiinterfaceplotter()
 
@@ -68,7 +71,7 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                         dcc.Input(
                             id="path-input_cam",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_cam', n_clicks=0, children='Submit'),
@@ -99,7 +102,6 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                         id='rangepicker_temp',
                         clearable=True,
                         min_date_allowed=dt(2020, 4, 1),
-                        initial_visible_month=dt.fromtimestamp(time.time()),
                         max_date_allowed=dt(2050,1,1),
                     ),
                     dcc.Graph(
@@ -111,7 +113,7 @@ if len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)!=0:
                         dcc.Input(
                             id="path-input_temp",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_temp', n_clicks=0, children='Submit'),
@@ -177,7 +179,7 @@ elif len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)==0:
                         dcc.Input(
                             id="path-input_cam",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_cam', n_clicks=0, children='Submit'),
@@ -219,7 +221,7 @@ elif len(guiintplot.beamsindb)!=0 and len(guiintplot.tempindb)==0:
                         dcc.Input(
                             id="path-input_temp",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_temp', n_clicks=0, children='Submit'),
@@ -283,7 +285,7 @@ elif len(guiintplot.beamsindb)==0 and len(guiintplot.tempindb)!=0:
                         dcc.Input(
                             id="path-input_cam",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_cam', n_clicks=0, children='Submit'),
@@ -326,7 +328,7 @@ elif len(guiintplot.beamsindb)==0 and len(guiintplot.tempindb)!=0:
                         dcc.Input(
                             id="path-input_temp",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_temp', n_clicks=0, children='Submit'),
@@ -391,7 +393,7 @@ else:
                         dcc.Input(
                             id="path-input_cam",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_cam', n_clicks=0, children='Submit'),
@@ -433,7 +435,7 @@ else:
                         dcc.Input(
                             id="path-input_temp",
                             type='text',
-                            value='/home/martinl/',
+                            value=EXPORTPATH,
                             placeholder="Export destination",
                             style={'width': '100%'}),
                         html.Button(id='export-button_temp', n_clicks=0, children='Submit'),
