@@ -192,5 +192,5 @@ class Tempviewer:
             
         
     def getfields(self,client,xrange):
-        return db.fieldlabels(client,self._selectedtemp,xrange)
+        return db.fieldlabels(client,'temperature',self._selectedtemp,xrange)
     
